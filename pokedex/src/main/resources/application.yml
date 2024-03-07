@@ -7,13 +7,13 @@ resilience4j:
     circuitbreaker:
         configs:
             default:
-                slidingWindowSize: 10
+                slidingWindowSize: 8
                 slidingWindowType: COUNT_BASED
-                minimumNumberOfCalls: 5
+                minimumNumberOfCalls: 4
                 permittedNumberOfCallsInHalfOpenState: 3
                 automaticTransitionFromOpenToHalfOpenEnabled: true
                 waitDurationInOpenState: 2s
         instances:
-            errorCallsMonitor:
+            kantoService:
                 baseConfig: default
                 failureRateThreshold: 50 
