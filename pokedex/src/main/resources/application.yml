@@ -17,3 +17,6 @@ resilience4j:
             kantoService:
                 baseConfig: default
                 failureRateThreshold: 50 
+                
+config:
+    password: my-password               
