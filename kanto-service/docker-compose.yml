@@ -2,5 +2,9 @@ version: '3'
 services:
   kanto-service:
     build: ./
+    environment:
+      OTEL_TRACES_EXPORTER: "logging"
+      OTEL_METRICS_EXPORTER: "logging"
+      OTEL_LOGS_EXPORTER: "logging"
     ports:
       - "8081:8081"

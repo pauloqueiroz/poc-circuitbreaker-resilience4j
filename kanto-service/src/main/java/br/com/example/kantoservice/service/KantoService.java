@@ -18,8 +18,7 @@ public class KantoService {
 		var pikachu = new PokemonRecord(25, "Pikachu", "Elétrico");
 		
 		List<PokemonRecord> pokemons = Arrays.asList(bulbasaur, charmander, squirtle, pikachu);
-		var regionRecord = new RegionRecord("Kanto", pokemons);
-		
-		return regionRecord;
+
+        return new RegionRecord("Kanto", pokemons);
 	}
 }
