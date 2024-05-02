@@ -8,3 +8,16 @@ services:
       OTEL_LOGS_EXPORTER: "logging"
     ports:
       - "8081:8081"
+    depends_on:
+      - jaeger-all-in-one
+
+  jaeger-all-in-one:
+    container_name: jaeger
+    image: jaegertracing/all-in-one:latest
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+      - LOG_LEVEL=debug
+    restart: always
+    ports:
+      - "16686:16686"
+      - "4317:4317"
