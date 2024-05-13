@@ -1,5 +1,6 @@
 package br.com.example.pokedex.kanto.client;
 
+import org.springframework.cloud.gateway.mvc.ProxyExchange;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,10 @@ public class KantoClient {
         .block();
 		
 		return responseObject;
+	}
+
+	public JsonNode retrieveKantoData(ProxyExchange<?> proxy) {
+		return null;
 	}
 
 }

@@ -1,6 +1,7 @@
 package br.com.example.pokedex.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.gateway.mvc.ProxyExchange;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,12 @@ public class PokedexService {
 	}
 
 	@CircuitBreaker(name="kantoService")
-	public ResponseEntity<?> getKantoData(){
+	public ResponseEntity<?> getRegionData(String region){
+		var kantoData = kantoClient.retrieveKantoData();
+		return ResponseEntity.ok(kantoData.toString());
+	}
+
+	public ResponseEntity<?> getRegionData(String regionName, ProxyExchange<byte[]> proxy) {
 		var kantoData = kantoClient.retrieveKantoData();
 		return ResponseEntity.ok(kantoData.toString());
 	}
