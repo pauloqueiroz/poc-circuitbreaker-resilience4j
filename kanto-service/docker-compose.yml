@@ -3,9 +3,10 @@ services:
   kanto-service:
     build: ./
     environment:
-      OTEL_TRACES_EXPORTER: "logging"
-      OTEL_METRICS_EXPORTER: "logging"
-      OTEL_LOGS_EXPORTER: "logging"
+      OTEL_TRACES_EXPORTER: "otlp"
+      OTEL_METRICS_EXPORTER: "none"
+      OTEL_LOGS_EXPORTER: "otlp"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "grpc"
     ports:
       - "8081:8081"
     depends_on:
