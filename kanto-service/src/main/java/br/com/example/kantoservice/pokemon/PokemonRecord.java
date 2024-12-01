@@ -1,3 +1,3 @@
-package br.com.example.kantoservice.record;
+package br.com.example.kantoservice.pokemon;
 
-public record PokemonRecord(int entry, String name, String type) {}
+public record PokemonRecord(int entry, String name, PokemonType type) {}

@@ -1,4 +1,4 @@
-package br.com.example.kantoservice.record;
+package br.com.example.kantoservice.pokemon;
 
 import java.util.List;
 
