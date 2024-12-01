@@ -6,13 +6,14 @@ public enum PokemonType {
     AGUA("água"),
     ELETRICO("elétrico");
 
-    private String descryption;
+    private final String descryption;
 
     PokemonType(String descryption) {
         this.descryption = descryption;
     }
 
-    public String getDescryption(){
+    @Override
+    public String toString() {
         return this.descryption;
     }
 }
