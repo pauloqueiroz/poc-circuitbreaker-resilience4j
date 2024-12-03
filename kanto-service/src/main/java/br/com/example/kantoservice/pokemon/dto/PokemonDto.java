@@ -1,4 +1,4 @@
-package br.com.example.kantoservice.dto;
+package br.com.example.kantoservice.pokemon.dto;
 
 import br.com.example.kantoservice.pokemon.PokemonRecord;
 

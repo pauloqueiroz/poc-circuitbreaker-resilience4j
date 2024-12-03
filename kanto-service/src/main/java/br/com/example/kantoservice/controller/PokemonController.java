@@ -1,6 +1,6 @@
 package br.com.example.kantoservice.controller;
 
-import br.com.example.kantoservice.dto.PokemonDto;
+import br.com.example.kantoservice.pokemon.dto.PokemonDto;
 import br.com.example.kantoservice.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
