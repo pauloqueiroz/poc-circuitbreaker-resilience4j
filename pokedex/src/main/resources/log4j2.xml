@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="60" name="AwsPerfLogConfig">
+
+    <!-- Appender síncrono de console com layout JSON -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <JsonLayout compact="true" eventEol="true"/>
+        </Console>
+
+        <!-- Appender assíncrono que envia para o console -->
+        <Async name="AsyncConsole" bufferSize="2048">
+            <AppenderRef ref="Console"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+
+        <!-- Logger específico com nível ERROR para sua classe de Config Store -->
+        <Logger name="br.com.example.pokedex.service.PokedexService" level="ERROR" additivity="false">
+            <AppenderRef ref="AsyncConsole"/>
+        </Logger>
+
+        <!-- Logger para execução de controller/service (via aspecto) -->
+<!--        <Logger name="ExecutionLogger" level="info" additivity="false">
+            <AppenderRef ref="AsyncConsole"/>
+        </Logger>-->
+
+        <!-- Logger padrão da aplicação -->
+        <Root level="warn">
+            <AppenderRef ref="AsyncConsole"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
