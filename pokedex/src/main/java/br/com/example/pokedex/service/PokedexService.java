@@ -4,6 +4,7 @@ import br.com.example.pokedex.kanto.client.KantoClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.spi.LoggerContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.mvc.ProxyExchange;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service	
 public class PokedexService {
 
-	private static final Logger LOG = LogManager.getLogger("Log4JCore");
+	private static final Logger LOG = LogManager.getLogger(PokedexService.class);
 
 	KantoClient kantoClient;
 	
@@ -23,9 +24,11 @@ public class PokedexService {
 
 	@CircuitBreaker(name="kantoService")
 	public ResponseEntity<?> getRegionData(String region){
+		LoggerContext context = LogManager.getContext();
 		LOG.info("Regiao buscada: "+region);
 		LOG.warn("Warning - Regiao buscada: "+region);
 		LOG.error("Error - Regiao buscada: "+region);
+		LOG.info(context.toString());
 		var kantoData = kantoClient.retrieveKantoData();
 		return ResponseEntity.ok(kantoData.toString());
 	}
