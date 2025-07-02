@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="60" name="AwsPerfLogConfig">
+<Configuration status="WARN" monitorInterval="60" name="AwsPerfLogConfig" packages="br.com.example.pokedex.log">
 
     <!-- Appender síncrono de console com layout JSON -->
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <JsonLayout compact="true" eventEol="true"/>
+            <CustomJsonLayout />
         </Console>
 
         <!-- Appender assíncrono que envia para o console -->
