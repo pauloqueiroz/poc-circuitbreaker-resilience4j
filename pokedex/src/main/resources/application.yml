@@ -1,7 +1,13 @@
 server:
   port: 8080
   servlet:
-      context-path: /pokedex
+    context-path: /pokedex
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 resilience4j:
     circuitbreaker:
@@ -16,7 +22,7 @@ resilience4j:
         instances:
             kantoService:
                 baseConfig: default
-                failureRateThreshold: 50 
+                failureRateThreshold: 50
                 
 config:
-    password: my-password               
+    password: my-password

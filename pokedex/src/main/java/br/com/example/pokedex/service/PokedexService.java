@@ -1,7 +1,6 @@
 package br.com.example.pokedex.service;
 
 import br.com.example.pokedex.kanto.client.KantoClient;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.spi.LoggerContext;
@@ -22,7 +21,6 @@ public class PokedexService {
 		this.kantoClient = kantoClient;
 	}
 
-	@CircuitBreaker(name="kantoService")
 	public ResponseEntity<?> getRegionData(String region){
 		LoggerContext context = LogManager.getContext();
 		LOG.info("Regiao buscada: "+region);
