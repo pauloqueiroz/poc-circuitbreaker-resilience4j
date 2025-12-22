@@ -1,0 +1,138 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Pokedex
+meta:
+  id: wrk_6a733e38ed6748b29613a3e886aa3a47
+  created: 1766353121519
+  modified: 1766353121519
+  description: ""
+collection:
+  - name: Pokedex
+    meta:
+      id: fld_9d571b6d71d84828bb7cb5dcb1275250
+      created: 1766365868043
+      modified: 1766365868043
+      sortKey: -1766365868043
+      description: ""
+    children:
+      - url: http://localhost:8080/pokedex/region/kanto
+        name: Pokedex getRegion
+        meta:
+          id: req_768bcf24c678468aab7652671a2d3689
+          created: 1766353134120
+          modified: 1766365871048
+          isPrivate: false
+          description: ""
+          sortKey: -1766365871028
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/pokedex/proxy-exchange/region/johto
+        name: Pokedex proxy getRegion
+        meta:
+          id: req_f7386e9efc5a4419b3e63e1d4aef7f49
+          created: 1766365813092
+          modified: 1766365877247
+          isPrivate: false
+          description: ""
+          sortKey: -1766365870928
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Johto Service
+    meta:
+      id: fld_7f17bfed4a4e4e668eebea77f97328aa
+      created: 1766366046807
+      modified: 1766366046807
+      sortKey: -1766366046807
+      description: ""
+    children:
+      - url: http://localhost:8082/johto/details
+        name: Johto Details
+        meta:
+          id: req_386d6346bb774fc2bf2c13024dc3c4ed
+          created: 1766365909221
+          modified: 1766366054132
+          isPrivate: false
+          description: ""
+          sortKey: -1766366054110
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Kanto Service
+    meta:
+      id: fld_eb25ff7bdcb84a6b88cd83e0bed57153
+      created: 1766366062148
+      modified: 1766366062148
+      sortKey: -1766366062148
+      description: ""
+    children:
+      - url: http://localhost:8081/kanto/details
+        name: Kanto Details
+        meta:
+          id: req_63cbcfb6733b4746979f278c0d923e82
+          created: 1766365974357
+          modified: 1766366081059
+          isPrivate: false
+          description: ""
+          sortKey: -1766366081039
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_be4381255a6af00dce5410fe570ca0f051ba6fae
+    created: 1766353121525
+    modified: 1766353121525
+environments:
+  name: Base Environment
+  meta:
+    id: env_be4381255a6af00dce5410fe570ca0f051ba6fae
+    created: 1766353121524
+    modified: 1766353121524
+    isPrivate: false
