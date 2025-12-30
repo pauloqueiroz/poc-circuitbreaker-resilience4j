@@ -32,7 +32,6 @@ public class PokedexService {
 	}
 
 	public ResponseEntity<?> getRegionData(String regionName, ProxyExchange<byte[]> proxy) {
-		var kantoData = kantoClient.retrieveKantoData();
-		return ResponseEntity.ok(kantoData.toString());
+        return proxy.get();
 	}
 }
