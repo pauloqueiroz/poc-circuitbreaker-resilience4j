@@ -27,7 +27,7 @@ public class PokedexService {
 		LOG.warn("Warning - Regiao buscada: "+region);
 		LOG.error("Error - Regiao buscada: "+region);
 		LOG.info(context.toString());
-		var kantoData = kantoClient.retrieveKantoData();
+		var kantoData = kantoClient.retrieve();
 		return ResponseEntity.ok(kantoData.toString());
 	}
 
