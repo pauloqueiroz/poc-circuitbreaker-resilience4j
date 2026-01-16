@@ -1,6 +1,6 @@
 package br.com.example.pokedex.service;
 
-import br.com.example.pokedex.kanto.client.KantoClient;
+import br.com.example.pokedex.RegionClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.spi.LoggerContext;
@@ -14,11 +14,11 @@ public class PokedexService {
 
 	private static final Logger LOG = LogManager.getLogger(PokedexService.class);
 
-	KantoClient kantoClient;
+	private final RegionResolver regionResolver;
 	
 	@Autowired
-	public PokedexService(KantoClient kantoClient) {
-		this.kantoClient = kantoClient;
+	public PokedexService(RegionResolver regionResolver) {
+		this.regionResolver = regionResolver;
 	}
 
 	public ResponseEntity<?> getRegionData(String region){
@@ -27,8 +27,9 @@ public class PokedexService {
 		LOG.warn("Warning - Regiao buscada: "+region);
 		LOG.error("Error - Regiao buscada: "+region);
 		LOG.info(context.toString());
-		var kantoData = kantoClient.retrieve();
-		return ResponseEntity.ok(kantoData.toString());
+        RegionClient client = regionResolver.getRegionClient(region);
+        var regionData = client.retrieve();
+		return ResponseEntity.ok(regionData.toString());
 	}
 
 	public ResponseEntity<?> getRegionData(String regionName, ProxyExchange<byte[]> proxy) {
