@@ -22,11 +22,7 @@ public class PokedexService {
 	}
 
 	public ResponseEntity<?> getRegionData(String region){
-		LoggerContext context = LogManager.getContext();
-		LOG.info("Regiao buscada: "+region);
-		LOG.warn("Warning - Regiao buscada: "+region);
-		LOG.error("Error - Regiao buscada: "+region);
-		LOG.info(context.toString());
+        LOG.info("Regiao buscada: {}", region);
         RegionClient client = regionResolver.getRegionClient(region);
         var regionData = client.retrieve();
 		return ResponseEntity.ok(regionData.toString());
